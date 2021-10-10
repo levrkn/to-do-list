@@ -1,0 +1,55 @@
+@import '../../../assets/styles/variables.scss';
+
+.form__group {
+  position: relative;
+  width: 500px;
+  margin: 30px auto;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 2px solid $gray;
+  outline: none;
+  font-size: 1.3rem;
+  color: $white;
+  padding: 7px;
+  background: transparent;
+  transition: all 0.2s;
+  color: $gray !important;
+  border-radius: 20px;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 11px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: -17px;
+  left: 10px;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $gray;
+  
+}
+
+.form__field:focus {
+  color: $primary !important;
+  border: 2px solid $primary;
+  ~ .form__label {
+    top: -20px;
+    left: 10px;
+    display: block;
+    transition: 0.2s;
+    color: $primary; 
+    font-size: 1.1rem;
+  }
+}

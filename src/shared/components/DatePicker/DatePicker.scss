@@ -1,0 +1,30 @@
+@import '../../../assets/styles/variables.scss';
+
+.highlight {
+  color: rgb(255, 255, 255);
+  background-color: #fff;
+  z-index: 0;
+  position: relative;
+}
+
+.highlight abbr::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  left: 2px;
+  top: 3px;
+  position: absolute;
+  background-color: $blue;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.react-calendar__tile--active {
+  background: rgb(80, 80, 80) !important;
+}
+
+.react-calendar {
+  width: 250px !important;
+  margin: auto !important;
+  font-family: $fontBalsamiq !important;
+}

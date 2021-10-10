@@ -1,0 +1,15 @@
+@import './variables.scss';
+@import './reset.scss';
+@import '../fonts/fonts.scss';
+
+
+#root {
+  font-family: $fontBalsamiq;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  min-height: 100vh;
+  justify-content: center;
+  flex-direction: column;
+}
