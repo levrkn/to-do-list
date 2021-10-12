@@ -12,11 +12,11 @@ import { useDispatch } from "react-redux";
 const ToDoList = () => {
   const toDo = useAppSelector((state: RootState) => state.ToDO)
   const history = useHistory()
-  const [state, setstate] = useState(moment(new Date()).format("DD-MM-YYYY"))
+  const [state, setstate] = useState(moment(new Date()).format("MM-DD-YYYY"))
   const dispatch = useDispatch()
 
   const toDoFilter = (date: any) => {
-    setstate(moment(date).format("DD-MM-YYYY"));
+    setstate(moment(date).format("MM-DD-YYYY"));
   };
 
   const remvoeToDo = (id: number) => {
@@ -48,6 +48,7 @@ const ToDoList = () => {
               text={el.text}
               date={el.date}
               removeToDo={(e: any) => remvoeToDo(el.id)}
+              editToDO={(e: any) => history.push(`/edit/${el.id}`)}
             />
           ))}
       </div>

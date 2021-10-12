@@ -5,7 +5,7 @@ const Input = (rest: any) => {
 
   return (
     <>
-        <input className="form__field" placeholder={rest.name} id={rest.name} autoComplete="off" {...rest} />
+        <input className="form__field" placeholder={rest.name} id={rest.name} autoComplete="off" type="textarea" {...rest} />
         <label htmlFor={rest.name} className="form__label">{rest.name}</label>
     </>
 

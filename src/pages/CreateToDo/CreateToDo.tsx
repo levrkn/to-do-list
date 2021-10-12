@@ -21,7 +21,7 @@ const CreateToDo: React.FC = () => {
   const onSubmit = (values: ToDo) => {
     const item = {
       ...values,
-      date: moment(values.date).format("DD-MM-YYYY"),
+      date: moment(values.date).format("MM-DD-YYYY"),
       id: Date.now(),
     };
     saveToDo(

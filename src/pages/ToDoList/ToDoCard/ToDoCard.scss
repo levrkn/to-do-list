@@ -1,5 +1,6 @@
 .toDo__card {
   width: 100%;
+  word-break: break-word;
   position: relative;
   &:not(:last-child) {
     border-bottom: 1px solid black;
@@ -7,10 +8,14 @@
   &__title {
     font-size: 30px;
     margin: 20px;
+    overflow: hidden;
+    max-width: calc(100% - 140px);
   }
   &__text {
     font-size: 20px;
     margin: 20px;
+    overflow: hidden;
+    max-width: calc(100% - 140px);
   }
   &__button {
     margin-left: auto;

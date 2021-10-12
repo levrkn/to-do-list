@@ -11,7 +11,7 @@ const DatePicker = (props: any) => {
     <Calendar
       locale="ru-RU"
       tileClassName={({ date }) => {
-        const dateFormating = (el: any) => moment(el).format("DD-MM-YYYY")
+        const dateFormating = (el: any) => moment(el).format("MM-DD-YYYY")
         if (props.mark) {
           if ([...props.mark].find((x: any) => x.date === dateFormating(date) && x.date >= dateFormating(new Date()))) {
             return 'highlight'

@@ -11,8 +11,9 @@ const ToDoForm = (props: any) => {
   const history = useHistory();
 
   const sleep = (ms: any) => new Promise((resolve) => setTimeout(resolve, ms));
-
+  
   const onSubmit = async (values: any) => {
+    props.onSubmit(values)
     await sleep(300);
     Swal.fire({
       title: "УСПЕХ!",
@@ -20,13 +21,12 @@ const ToDoForm = (props: any) => {
       icon: "success",
       confirmButtonText: "Ок",
     });
-    props.onSubmit(values)
   };
 
   let formData = {
-    title: "",
-    text: "",
-    date: new Date(),
+    title: props.defaultTitle || "",
+    text: props.defaultText || "",
+    date: props.defaultDate || new Date(),
   };
   return (
     <div>
@@ -74,7 +74,7 @@ const ToDoForm = (props: any) => {
             </Field>
             <Field name="title">
               {({ input, meta }) => (
-                <div className="form__group field">
+                <div className="form__group field" contentEditable="true">
                   <Input {...input} name="Название" />
                   {meta.error && meta.touched && (
                     <span className="form__field__error">{meta.error}</span>
