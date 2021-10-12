@@ -1,4 +1,4 @@
-export type ToDO = {
+export type ToDo = {
   id: number
   date: string
   title: string

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import Button from "../../shared/components/Button/Button";
 import DatePicker from "../../shared/components/DatePicker/DatePicker";
 import { useAppSelector } from "../../state/hooks";
@@ -9,14 +8,12 @@ import "./ToDoList.scss";
 import { useHistory } from "react-router-dom";
 import moment from "moment";
 import { useDispatch } from "react-redux";
-import Form from "../../shared/components/Form/Form";
 
 const ToDoList = () => {
-  const toDo = useAppSelector((state: RootState) => state.ToDO);
-  const history = useHistory();
-  const { control } = useForm();
-  const [state, setstate] = useState(moment(new Date()).format("DD-MM-YYYY"));
-  const dispatch = useDispatch();
+  const toDo = useAppSelector((state: RootState) => state.ToDO)
+  const history = useHistory()
+  const [state, setstate] = useState(moment(new Date()).format("DD-MM-YYYY"))
+  const dispatch = useDispatch()
 
   const toDoFilter = (date: any) => {
     setstate(moment(date).format("DD-MM-YYYY"));
@@ -36,11 +33,10 @@ const ToDoList = () => {
       payload: JSON.parse(localStorage.getItem("s") || "[]"),
     });
   };
-
+  
   return (
     <div className="toDoList__root">
-      <Form />
-      <DatePicker control={control} mark={toDo} onChange={toDoFilter} />
+      <DatePicker mark={toDo} onChange={toDoFilter} />
       <Button onClick={(e) => history.push("/create")}>Добавить</Button>
       <div className="toDo__list">
         {toDo

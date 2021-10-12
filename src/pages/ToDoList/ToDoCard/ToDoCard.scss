@@ -1,6 +1,5 @@
 .toDo__card {
   width: 100%;
-  height: 150px;
   position: relative;
   &:not(:last-child) {
     border-bottom: 1px solid black;
@@ -20,7 +19,7 @@
     display: none;
     position: absolute;
     right: 20px;
-    top: 20px;
+    top: -5px;
     width: 32px;
     height: 32px;
     cursor: pointer;
@@ -30,7 +29,7 @@
     display: none;
     position: absolute;
     right: 64px;
-    top: 20px;
+    top: -5px;
     width: 32px;
     height: 32px;
     cursor: pointer;

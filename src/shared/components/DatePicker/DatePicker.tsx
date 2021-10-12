@@ -2,13 +2,10 @@ import React from 'react'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
-import { useController } from 'react-hook-form'
 import './DatePicker.scss'
 
 
 const DatePicker = (props: any) => {
-  
-  const { field } = useController(props)
 
   return (
     <Calendar
@@ -23,7 +20,6 @@ const DatePicker = (props: any) => {
         return ''
       }}
       minDate={new Date()}
-      {...field}
       {...props}
     />
   )
