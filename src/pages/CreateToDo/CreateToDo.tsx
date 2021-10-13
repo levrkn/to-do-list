@@ -1,25 +1,18 @@
-import moment from 'moment'
-import React from 'react'
-import ToDoForm from '../../shared/components/Form/ToDoForm'
-import { saveToDo } from '../../state/actions/ToDoAction'
-import { useAppDispatch } from '../../state/hooks'
-import { ToDo } from '../../types/types'
-import './CreateToDo'
+import moment from "moment";
+import React from "react";
+import { useHistory } from "react-router";
+import ToDoForm from "../../shared/components/Form/ToDoForm";
+import { saveToDo } from "../../state/actions/ToDoAction";
+import { useAppDispatch } from "../../state/hooks";
+import { ToDoType } from "../../types/types";
+import "./CreateToDo";
 
 const CreateToDo: React.FC = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
+  const history = useHistory();
 
-  // const { handleSubmit, control } = useForm({
-  //   defaultValues: {
-  //     title: "",
-  //     text: "",
-  //     date: new Date()
-  //   },
-  //   mode: "onBlur"
-  // });
-
-  const onSubmit = (values: ToDo) => {
-    const item = {
+  const onSubmit = (values: ToDoType) => {
+    const item: ToDoType = {
       ...values,
       date: moment(values.date).format("MM-DD-YYYY"),
       id: Date.now(),
@@ -29,13 +22,18 @@ const CreateToDo: React.FC = () => {
       [...JSON.parse(localStorage.getItem("s") || "{}"), item],
       item
     )(dispatch);
-  }
+  };
 
   return (
     <>
-      <ToDoForm onSubmit={onSubmit} />
+      <ToDoForm
+        onSubmit={onSubmit}
+        promise1={(e) => {history.push("/"); history.push("/create")}}
+        button="создать"
+        alert1="Вы успешно создали событие"
+      />
     </>
-  )
-}
+  );
+};
 
-export default CreateToDo
+export default CreateToDo;

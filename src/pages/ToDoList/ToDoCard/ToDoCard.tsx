@@ -1,9 +1,10 @@
 import React from "react";
+import { ToDoCardType } from "../../../types/types";
 import "./ToDoCard.scss";
 
-const ToDoCard = (props: any) => {
+const ToDoCard = (props: ToDoCardType) => {
   return (
-    <div className="toDo__card" key={props.id}>
+    <div className="toDo__card">
       <p className="toDo__card__title">{props.title}</p>
       <p className="toDo__card__text">{props.text}</p>
       <p className="toDo__card__text">{props.date}</p>

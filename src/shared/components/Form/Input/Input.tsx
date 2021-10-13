@@ -1,12 +1,14 @@
 import React from 'react'
 import './Input.scss'
 
-const Input = (rest: any) => {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+
+const Input: React.FC<InputProps> = (props: InputProps) => {
 
   return (
     <>
-        <input className="form__field" placeholder={rest.name} id={rest.name} autoComplete="off" type="textarea" {...rest} />
-        <label htmlFor={rest.name} className="form__label">{rest.name}</label>
+        <input className="form__field" placeholder={props.name} id={props.name} autoComplete="off" type="textarea" {...props} />
+        <label htmlFor={props.name} className="form__label">{props.name}</label>
     </>
 
 

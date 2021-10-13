@@ -6,18 +6,19 @@ import Button from "../Button/Button";
 import DatePicker from "../DatePicker/DatePicker";
 import Swal from "sweetalert2";
 import { useHistory } from "react-router";
+import { ToDoFormType } from "../../../types/types";
 
-const ToDoForm = (props: any) => {
+const ToDoForm = (props: ToDoFormType) => {
   const history = useHistory();
 
   const sleep = (ms: any) => new Promise((resolve) => setTimeout(resolve, ms));
-  
+
   const onSubmit = async (values: any) => {
-    props.onSubmit(values)
+    props.onSubmit(values);
     await sleep(300);
     Swal.fire({
       title: "УСПЕХ!",
-      text: "Вы успешно создали событие",
+      text: props.alert1 || "Вы успешно создали событие",
       icon: "success",
       confirmButtonText: "Ок",
     });
@@ -57,8 +58,7 @@ const ToDoForm = (props: any) => {
 
               promise &&
                 promise.then(() => {
-                  history.push('/')
-                  history.push('/create')
+                  props.promise1();
                 });
 
               return promise;
@@ -74,7 +74,7 @@ const ToDoForm = (props: any) => {
             </Field>
             <Field name="title">
               {({ input, meta }) => (
-                <div className="form__group field" contentEditable="true">
+                <div className="form__group field">
                   <Input {...input} name="Название" />
                   {meta.error && meta.touched && (
                     <span className="form__field__error">{meta.error}</span>
@@ -92,9 +92,11 @@ const ToDoForm = (props: any) => {
                 </div>
               )}
             </Field>
-            <Button type="button" onClick={(e: any) => history.push("/")}>Отмена</Button>
+            <Button type="button" onClick={(e: any) => history.push("/")}>
+              Отмена
+            </Button>
             <Button type="submit" disabled={submitting}>
-              Создать
+              {props.button}
             </Button>
           </form>
         )}

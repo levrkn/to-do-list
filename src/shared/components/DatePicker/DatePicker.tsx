@@ -21,6 +21,7 @@ const DatePicker = (props: any) => {
       }}
       minDate={new Date()}
       {...props}
+      defaultValue={new Date()}
     />
   )
 }
