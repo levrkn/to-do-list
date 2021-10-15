@@ -8,17 +8,17 @@ import Swal from "sweetalert2";
 import { useHistory } from "react-router";
 import { ToDoFormType } from "../../../types/types";
 
-const ToDoForm = (props: ToDoFormType) => {
+const ToDoForm: React.FC<ToDoFormType> = (props: ToDoFormType) => {
   const history = useHistory();
 
-  const sleep = (ms: any) => new Promise((resolve) => setTimeout(resolve, ms));
+  const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const onSubmit = async (values: any) => {
     props.onSubmit(values);
     await sleep(300);
     Swal.fire({
       title: "УСПЕХ!",
-      text: props.alert1 || "Вы успешно создали событие",
+      text: props.alert1,
       icon: "success",
       confirmButtonText: "Ок",
     });

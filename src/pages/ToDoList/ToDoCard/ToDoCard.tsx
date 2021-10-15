@@ -2,7 +2,7 @@ import React from "react";
 import { ToDoCardType } from "../../../types/types";
 import "./ToDoCard.scss";
 
-const ToDoCard = (props: ToDoCardType) => {
+const ToDoCard: React.FC<ToDoCardType> = (props: ToDoCardType) => {
   return (
     <div className="toDo__card">
       <p className="toDo__card__title">{props.title}</p>

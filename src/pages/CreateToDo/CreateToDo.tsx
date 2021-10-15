@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import ToDoForm from "../../shared/components/Form/ToDoForm";
 import { saveToDo } from "../../state/actions/ToDoAction";
 import { useAppDispatch } from "../../state/hooks";
+import { ToDoTypes } from "../../state/reducers/ToDoReducer";
 import { ToDoType } from "../../types/types";
 import "./CreateToDo";
 
@@ -18,7 +19,7 @@ const CreateToDo: React.FC = () => {
       id: Date.now(),
     };
     saveToDo(
-      "save",
+      ToDoTypes.save,
       [...JSON.parse(localStorage.getItem("s") || "{}"), item],
       item
     )(dispatch);
@@ -37,3 +38,4 @@ const CreateToDo: React.FC = () => {
 };
 
 export default CreateToDo;
+

@@ -10,8 +10,8 @@ import moment from "moment";
 import { useDispatch } from "react-redux";
 import { ToDoType } from "../../types/types";
 
-const ToDoList = () => {
-  const toDo = useAppSelector((state: RootState) => state.ToDO);
+const ToDoList: React.FC = () => {
+  const toDo: ToDoType[] = useAppSelector((state: RootState) => state.ToDO);
   const history = useHistory();
   const [selectedDate, setSelectedDate] = React.useState(moment(new Date()).format("MM-DD-YYYY"));
   const dispatch = useDispatch();

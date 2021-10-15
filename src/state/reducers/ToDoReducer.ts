@@ -1,10 +1,18 @@
+
+
+export enum ToDoTypes {
+  save = "save",
+  edit = "edit",
+  localsave = "localsave",
+}
+
 const ToDoReducer = (state: any[] = [], action: any) => {
   switch (action.type) {
-    case "save":
+    case ToDoTypes.save:
       return [...state, action.payload];
-    case "edit":
+    case ToDoTypes.edit:
       return [...state.filter((el:any) => el.id !== action.payload.id), action.payload];
-    case "localsave":
+    case ToDoTypes.localsave:
       return [...action.payload];
 
     default:

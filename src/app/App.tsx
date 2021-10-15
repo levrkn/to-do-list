@@ -2,6 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import '../assets/styles/index.scss'
 import { useAppDispatch } from '../state/hooks'
+import { ToDoTypes } from '../state/reducers/ToDoReducer'
 import Routes from './Routes'
 
 const App: FC = () => {
@@ -12,7 +13,7 @@ const App: FC = () => {
     if (JSON.parse(localStorage.getItem('s') || '[]').length === 0) {
       localStorage.setItem('s', JSON.stringify([]))
     }
-    dispatch({ type: 'localsave', payload: JSON.parse(localStorage.getItem('s') || '[]') })
+    dispatch({ type: ToDoTypes.localsave, payload: JSON.parse(localStorage.getItem('s') || '[]') })
   })
 
   return (

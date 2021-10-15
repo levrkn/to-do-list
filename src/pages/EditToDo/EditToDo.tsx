@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import ToDoForm from "../../shared/components/Form/ToDoForm";
 import { saveToDo } from "../../state/actions/ToDoAction";
 import { useAppDispatch, useAppSelector } from "../../state/hooks";
+import { ToDoTypes } from "../../state/reducers/ToDoReducer";
 import { RootState } from "../../state/store";
 import { ToDoType } from "../../types/types";
 
@@ -24,7 +25,7 @@ const EditToDo: React.FC = () => {
       id: currentToDo.id,
     };
     saveToDo(
-      "edit",
+      ToDoTypes.edit,
       [
         ...JSON.parse(localStorage.getItem("s") || "[]").filter(
           (el: ToDoType) => el.id !== item.id
